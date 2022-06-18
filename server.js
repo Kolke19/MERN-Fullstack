@@ -6,9 +6,14 @@ const dbArchive = require('./conexion')
 
 //importacion del archivo de rutas y modelo de usuario
 
-const rutaUsuario = require("./routes/usuarios")
+const rutasuario = require('./rutas/usuario')
 
-app.use("./api/usuario", rutaUsuario)
+//Importar body Parser
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:'true'}))
+//
+app.use("/api/usuario", rutasuario)
 
 app.get('/', (req, res) => {
     res.end('el usuario esta corriendo correctamente desde node.js')
@@ -16,6 +21,6 @@ app.get('/', (req, res) => {
 
 //configurar server basico 
 
-app.listen(5000, function () {
-    console.log('el servidor esta corriendo correctamente')
+app.listen(4000, function () {
+    console.log('el servidor esta corriendo JAVI PUTO ')
 })
